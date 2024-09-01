@@ -1,0 +1,11 @@
+@mixin margem-central($width){
+    margin: 0 auto;
+    padding: 40px 0;
+    width: $width;
+}
+
+@mixin estilo-fonte($ft-family, $ft-size, $color){
+    font-family: $ft-family;
+    font-size: $ft-size;
+    color: $color;
+}

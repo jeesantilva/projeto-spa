@@ -1,0 +1,83 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+
+#contatos{
+    @include mixins.margem-central(80%);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    .contatos-imgs{
+        max-width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+        img{
+            width: 100%;
+            &:nth-child(n + 2){
+                width: 48%;
+            }
+        }
+    }
+    .contatos-form{
+        max-width: 50%;
+        background: variaveis.$gradiente-primario;
+        border-radius: 48px;
+        padding: 2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        .titulo{
+            @include mixins.estilo-fonte(variaveis.$fonte-titulo, variaveis.$tamanho-subtitulo, variaveis.$cor-secundaria);
+        }
+        .infos{
+            @include mixins.estilo-fonte(variaveis.$fonte-texto, variaveis.$tamanho-paragrafo, variaveis.$cor-primaria);
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-self: stretch;
+            gap: 1.5rem;
+            .form-group{
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                label{
+                   @extend .infos;
+                    font-weight: 600;
+                }
+                input{
+                    // height: 55px;
+                    padding: 1.5rem ;
+                    border-radius: 2rem;
+                    border: none;
+                    &::placeholder{
+                        @include mixins.estilo-fonte(variaveis.$fonte-texto, variaveis.$tamanho-small, #5D586C);   
+                    }
+                }
+                textarea{
+                    @extend input;
+                    height: 120px;
+                }
+            }
+            .btn{
+                margin-top: 2rem;
+                padding: 1.5rem ;
+                border-radius: 3rem;
+                border: none;
+                width: 100%;
+                cursor: pointer;
+                background: variaveis.$cor-secundaria;
+                @include mixins.estilo-fonte(variaveis.$fonte-texto, variaveis.$tamanho-paragrafo, variaveis.$cor-texto-btn);
+                font-weight: 700;
+                &:hover{
+                    background: variaveis.$cor-terciaria;   
+                }
+            }
+        }
+
+    }
+}

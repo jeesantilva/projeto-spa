@@ -1,0 +1,12 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+footer{
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    background: variaveis.$background-footer;
+    small{
+        @include mixins.estilo-fonte(variaveis.$fonte-texto, variaveis.$tamanho-small, variaveis.$cor-primaria);
+    }
+}
